@@ -35,7 +35,7 @@
         href="{base}/#contact"
         class="btn btn-primary ml-3"
       >
-        Get in touch
+        Discuss Your Deployment
       </a>
     </nav>
 

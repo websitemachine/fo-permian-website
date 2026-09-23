@@ -1,6 +1,6 @@
 # FO Permian Website
 
-Marketing site for FO Permian Partners — off-grid natural gas + battery power in the Permian Basin for AI / hyperscale data centers.
+Marketing site for FO Permian Partners — powered land, power purchase agreements, and white space for neoclouds and AI infrastructure operators in West Texas.
 
 ## Tech Stack
 

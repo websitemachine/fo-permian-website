@@ -7,8 +7,13 @@
     <div class="max-w-3xl">
       <p class="eyebrow">Partners</p>
       <h2 class="display-2 mt-5">
-        Power and land, delivered by operators who already run West Texas infrastructure.
+        FO Permian structures the opportunity. Our partners build and operate it.
       </h2>
+      <p class="mt-6 text-text-muted leading-relaxed">
+        FO Permian sources sites, structures power and white space opportunities, and manages the
+        relationship with each customer. Power generation and data center facilities are developed,
+        owned, and operated by our development partners under terms set for each project.
+      </p>
     </div>
 
     <div class="mt-14 grid gap-6 md:grid-cols-2">
@@ -32,8 +37,9 @@
       <article class="flex flex-col justify-center rounded-lg border border-dashed border-line-strong p-8 md:p-10">
         <p class="font-mono text-xs uppercase tracking-wider text-text-dim">Partnership inquiries</p>
         <p class="mt-3 text-text-muted">
-          Capital partners, hyperscalers, and EPC firms interested in West Texas off-grid power —
-          <a href="#contact" class="text-flame underline-offset-4 hover:underline">start a conversation</a>.
+          Power developers, data center developers, capital partners, and EPC firms interested in
+          West Texas GPU infrastructure —
+          <a href="#contact" class="text-flame underline-offset-4 hover:underline">get in touch</a>.
         </p>
       </article>
     </div>

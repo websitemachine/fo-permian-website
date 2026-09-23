@@ -1,10 +1,10 @@
 <script>
   const rows = [
-    { dim: 'Time to power', grid: '3–8 years', fo: 'Months' },
+    { dim: 'Time to power', grid: 'Multi-year queues', fo: 'Structured per project with our partners' },
     { dim: 'Permitting', grid: 'Multi-agency, multi-state', fo: 'TCEQ attainment-zone, streamlined' },
-    { dim: 'Transmission risk', grid: 'Upgrades + interconnection studies', fo: 'None — behind-the-meter' },
-    { dim: 'Demand response', grid: 'Subject to curtailment', fo: 'Independent of grid events' },
-    { dim: 'Scale path', grid: 'Capacity-bound by substation', fo: '5GW+ gas, 3,200 contiguous acres' }
+    { dim: 'Transmission risk', grid: 'Upgrades + studies', fo: 'Reduced with behind-the-meter supply' },
+    { dim: 'Demand response', grid: 'Subject to curtailment', fo: 'Terms set per opportunity' },
+    { dim: 'Scale path', grid: 'Capacity-bound by substation', fo: 'Sites with room to expand' }
   ];
 </script>
 
@@ -14,13 +14,17 @@
       <div>
         <p class="eyebrow">The Permian advantage</p>
         <h2 class="display-2 mt-5">
-          Bypassing the grid is no longer optional — it's the only path that lands on schedule.
+          For GPU deployments, the grid queue is the bottleneck. West Texas has another route.
         </h2>
         <p class="mt-6 text-text-muted leading-relaxed">
-          U.S. data center power demand is projected to more than triple by 2030. Utility interconnection
-          queues now push timelines out three to eight years. The Permian gives operators an alternative —
-          low-cost natural gas at the source, redundant pipeline infrastructure, industrial water, diverse
-          fiber routes, and a regulatory environment that moves at construction speed.
+          U.S. data center power demand is projected to more than triple by 2030, and utility interconnection
+          queues now push timelines out years. The Permian gives neoclouds an alternative — natural gas at the
+          source, redundant pipeline infrastructure, industrial water, diverse fiber routes, and a regulatory
+          environment that moves at construction speed.
+        </p>
+        <p class="mt-4 text-text-muted leading-relaxed">
+          Behind-the-meter power is a project-specific solution. Configuration, fuel, storage, and operating
+          terms are determined for each opportunity with our power development partners.
         </p>
       </div>
 

@@ -1,6 +1,6 @@
 <script>
   import { base } from '$app/paths';
-  import { site } from '$lib/data/site';
+  import { offerings } from '$lib/data/site';
 </script>
 
 <section class="relative isolate overflow-hidden pt-28 pb-16 md:pt-36 md:pb-24">
@@ -28,53 +28,46 @@
     <div>
       <p class="eyebrow flex items-center gap-3">
         <span class="inline-block h-px w-8 bg-flame"></span>
-        Permian Basin · Off-Grid Power
+        West Texas · Neocloud & AI Infrastructure
       </p>
 
       <h1 class="display-1 mt-6 max-w-4xl">
-        Reliable off-grid energy for
-        <span class="relative inline-block">
-          <span class="bg-gradient-to-r from-flame to-flame-hi bg-clip-text text-transparent">
-            AI & data centers.
-          </span>
+        Powered land. Contracted power.
+        <span class="bg-gradient-to-r from-flame to-flame-hi bg-clip-text text-transparent">
+          White space for your GPUs.
         </span>
       </h1>
 
       <p class="mt-7 max-w-2xl text-lg leading-relaxed text-text-muted md:text-xl">
-        FO Permian delivers resilient natural gas power with battery storage for hyperscale workloads —
-        <span class="text-text">99.999% uptime</span>,
-        <span class="text-text">full energy control</span>, and scalable growth, without adding load to
-        the ERCOT grid or impacting West Texas communities.
+        FO Permian helps neoclouds and AI infrastructure operators secure land, power, and white space
+        in West Texas through our power and data center development partnerships.
       </p>
 
       <div class="mt-10 flex flex-wrap items-center gap-3">
-        <a href="#contact" class="btn btn-primary">Start a conversation</a>
-        <a href="#platform" class="btn btn-ghost">How it works ↓</a>
+        <a href="#contact" class="btn btn-primary">Discuss Your Deployment</a>
+        <a href="#offerings" class="btn btn-ghost">What we offer ↓</a>
       </div>
     </div>
 
-    <!-- Right column: at-a-glance stats card -->
+    <!-- Right column: the three offerings at a glance -->
     <aside class="relative">
       <div class="rounded-lg border border-line-strong bg-surface/60 p-7 backdrop-blur-sm">
-        <p class="eyebrow">At a glance</p>
-        <dl class="mt-5 grid grid-cols-2 gap-x-4 gap-y-6">
-          <div>
-            <dt class="font-mono text-xs uppercase tracking-wider text-text-muted">Initial capacity</dt>
-            <dd class="stat-numeral mt-1 text-3xl">150<span class="text-flame">MW</span></dd>
-          </div>
-          <div>
-            <dt class="font-mono text-xs uppercase tracking-wider text-text-muted">Gas supply</dt>
-            <dd class="stat-numeral mt-1 text-3xl">5<span class="text-flame">GW+</span></dd>
-          </div>
-          <div>
-            <dt class="font-mono text-xs uppercase tracking-wider text-text-muted">Acres available</dt>
-            <dd class="stat-numeral mt-1 text-3xl">3,200</dd>
-          </div>
-          <div>
-            <dt class="font-mono text-xs uppercase tracking-wider text-text-muted">Uptime target</dt>
-            <dd class="stat-numeral mt-1 text-3xl">99.999<span class="text-flame">%</span></dd>
-          </div>
-        </dl>
+        <p class="eyebrow">Three ways to deploy</p>
+        <ul class="mt-5 divide-y divide-line">
+          {#each offerings as o}
+            <li class="py-4 first:pt-0 last:pb-0">
+              <a href="#offerings" class="group flex items-baseline gap-4">
+                <span class="font-mono text-xs text-text-dim">{o.num}</span>
+                <span class="font-display text-lg font-semibold text-text transition-colors group-hover:text-flame">
+                  {o.label}
+                </span>
+              </a>
+            </li>
+          {/each}
+        </ul>
+        <p class="mt-5 text-sm text-text-muted">
+          FO Permian sources and structures the opportunity. Our partners develop the power and the facilities.
+        </p>
       </div>
     </aside>
   </div>

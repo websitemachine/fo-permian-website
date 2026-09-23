@@ -9,14 +9,20 @@
 
   <div class="container-wide">
     <div class="mx-auto max-w-4xl text-center">
-      <p class="eyebrow">Start a conversation</p>
+      <p class="eyebrow">Discuss your deployment</p>
       <h2 class="display-1 mt-6">
-        Move from agreements to operation in months — not years.
+        Tell us what your GPUs need: powered land, a PPA, or white space.
       </h2>
       <p class="mx-auto mt-7 max-w-2xl text-lg text-text-muted leading-relaxed">
-        Reach out to discuss partnership, project opportunities, or platform details. We respond to qualified
-        inquiries within one business day.
+        Share which of the three you're looking for, your target scale, and your timeline. We'll come back
+        with how FO Permian and our development partners can structure it. We respond to qualified inquiries
+        within one business day.
       </p>
+      <div class="mt-10">
+        <a href="mailto:{site.contact.email}?subject={encodeURIComponent('Deployment inquiry — powered land / PPA / white space')}" class="btn btn-primary">
+          Discuss Your Deployment
+        </a>
+      </div>
     </div>
 
     <div class="mx-auto mt-16 grid max-w-4xl gap-6 sm:grid-cols-2">
@@ -29,10 +35,10 @@
           {site.contact.email}
         </p>
         <p class="mt-3 text-sm text-text-muted">
-          For project inquiries, partnership discussions, or platform details.
+          Tell us whether you need powered land, a PPA, or white space.
         </p>
         <span class="mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-text-muted transition-colors group-hover:text-text">
-          Send a message <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
+          Discuss your deployment <span aria-hidden="true" class="transition-transform group-hover:translate-x-1">→</span>
         </span>
       </a>
 

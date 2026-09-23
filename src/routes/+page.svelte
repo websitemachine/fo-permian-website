@@ -1,19 +1,20 @@
 <script>
   import Hero from '$lib/components/Hero.svelte';
-  import Pillars from '$lib/components/Pillars.svelte';
-  import StatBand from '$lib/components/StatBand.svelte';
+  import Offerings from '$lib/components/Offerings.svelte';
   import Comparison from '$lib/components/Comparison.svelte';
   import PermianAdvantage from '$lib/components/PermianAdvantage.svelte';
   import Partners from '$lib/components/Partners.svelte';
   import Leadership from '$lib/components/Leadership.svelte';
   import Contact from '$lib/components/Contact.svelte';
   import { site } from '$lib/data/site';
+
+  const title = 'FO Permian — Powered land, PPAs & white space for GPUs in West Texas';
 </script>
 
 <svelte:head>
-  <title>FO Permian — Off-grid power for AI & data centers</title>
+  <title>{title}</title>
   <meta name="description" content={site.description} />
-  <meta property="og:title" content="FO Permian — Off-grid power for AI & data centers" />
+  <meta property="og:title" content={title} />
   <meta property="og:description" content={site.description} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={site.url} />
@@ -22,8 +23,7 @@
 </svelte:head>
 
 <Hero />
-<Pillars />
-<StatBand />
+<Offerings />
 <Comparison />
 <PermianAdvantage />
 <Partners />

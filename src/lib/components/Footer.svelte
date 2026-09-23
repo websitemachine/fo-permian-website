@@ -1,4 +1,5 @@
 <script>
+  import { base } from '$app/paths';
   import { site } from '$lib/data/site';
   import Logo from './Logo.svelte';
   const year = new Date().getFullYear();
@@ -12,6 +13,11 @@
         <p class="mt-5 max-w-sm text-sm leading-relaxed text-text-muted">
           {site.description}
         </p>
+        <ul class="mt-5 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs uppercase tracking-wider text-text-muted">
+          <li><a href="{base}/#offerings" class="transition-colors hover:text-flame">Powered Land</a></li>
+          <li><a href="{base}/#offerings" class="transition-colors hover:text-flame">Power Purchase Agreements</a></li>
+          <li><a href="{base}/#offerings" class="transition-colors hover:text-flame">White Space</a></li>
+        </ul>
       </div>
 
       <div>
@@ -42,7 +48,7 @@
 
     <div class="mt-8 flex flex-col items-start justify-between gap-3 text-xs text-text-dim md:flex-row md:items-center">
       <p>© {year} {site.legalName}. All rights reserved.</p>
-      <p class="font-mono uppercase tracking-wider">Modern infrastructure · West Texas</p>
+      <p class="font-mono uppercase tracking-wider">GPU infrastructure · West Texas</p>
     </div>
   </div>
 </footer>
