@@ -40,6 +40,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4'
           command: deploy
 
       # Any other branch -> versioned preview upload with its own URL.
@@ -50,10 +51,18 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4'
           command: versions upload --tag ${{ github.ref_name }} --message "${{ github.sha }}"
 
       - name: Preview URL
         if: github.ref != 'refs/heads/main'
+        env:
+          OUT: ${{ steps.preview.outputs.command-output }}
         run: |
-          echo "### Preview" >> "$GITHUB_STEP_SUMMARY"
-          echo '${{ steps.preview.outputs.command-output }}' | grep -Eo 'https://[^ ]+workers\.dev' | head -1 >> "$GITHUB_STEP_SUMMARY" || true
+          URL=$(printf '%s' "$OUT" | grep -Eo 'https://[A-Za-z0-9.-]+\.workers\.dev' | head -1)
+          {
+            echo "### Preview"
+            echo
+            if [ -n "$URL" ]; then echo "$URL"; else echo "_No preview URL found in wrangler output; check the Upload preview step._"; fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "preview-url=$URL" >> "$GITHUB_OUTPUT"
