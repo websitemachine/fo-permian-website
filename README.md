@@ -8,7 +8,7 @@ Marketing site for FO Permian Partners — powered land, power purchase agreemen
 - Tailwind CSS v4
 - mdsvex for markdown-driven news posts
 - `@sveltejs/adapter-static` (full static prerender)
-- Deployed to GitHub Pages via GitHub Actions
+- Deployed to Cloudflare Workers (static assets) via GitHub Actions
 
 ## Local development
 
@@ -29,7 +29,14 @@ Produces a static site in `./build/`.
 
 ## Deployment
 
-Pushes to `main` trigger `.github/workflows/deploy.yml`, which builds the site and publishes it to GitHub Pages. The custom domain `fopermian.com` is configured via `static/CNAME`.
+Hosted on the Website Machine Cloudflare account as the Worker `fo-permian-website` (static assets only, no server code).
+
+- Push to `main` → `.github/workflows/deploy.yml` builds and runs `wrangler deploy` (production, `fopermian.com`).
+- Push to any other branch → `wrangler versions upload`, which prints a preview URL in the workflow summary.
+- Secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` are repository secrets.
+- The custom domain is attached to the Worker in the Cloudflare dashboard (Workers → fo-permian-website → Settings → Domains & Routes).
+
+Manual deploy from a machine with wrangler and the token: `npm run build && npx wrangler deploy`.
 
 ## Content
 

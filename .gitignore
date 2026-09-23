@@ -40,3 +40,7 @@ _review/
 # Alternate hosting platforms
 .vercel/
 .netlify/
+
+# Cloudflare
+.wrangler/
+.dev.vars

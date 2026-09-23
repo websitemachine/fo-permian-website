@@ -1,27 +1,20 @@
-name: Deploy to GitHub Pages
+name: Deploy to Cloudflare Workers
 
 on:
   push:
-    branches: ['main']
+    branches: ['**']
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: 'pages'
-  cancel-in-progress: false
-
-# Opt JavaScript-based actions into Node 24 now, ahead of the
-# June 2026 forced cutover. Silences the deprecation warning.
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build:
-    name: Build
+  deploy:
+    name: ${{ github.ref == 'refs/heads/main' && 'Production' || 'Preview' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -38,25 +31,29 @@ jobs:
 
       - name: Build site
         run: npm run build
-        env:
-          # Subpath for GitHub Pages preview at fo-permian.github.io/website/.
-          # Remove this env block (or set BASE_PATH to '') once the custom
-          # domain (fopermian.com) is live and serving at the root.
-          BASE_PATH: /website
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      # main -> production deploy (fo-permian-website.<account>.workers.dev,
+      # plus the fopermian.com custom domain once attached).
+      - name: Deploy (production)
+        if: github.ref == 'refs/heads/main'
+        uses: cloudflare/wrangler-action@v3
         with:
-          path: 'build'
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
 
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # Any other branch -> versioned preview upload with its own URL.
+      - name: Upload preview
+        if: github.ref != 'refs/heads/main'
+        id: preview
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: versions upload --tag ${{ github.ref_name }} --message "${{ github.sha }}"
+
+      - name: Preview URL
+        if: github.ref != 'refs/heads/main'
+        run: |
+          echo "### Preview" >> "$GITHUB_STEP_SUMMARY"
+          echo '${{ steps.preview.outputs.command-output }}' | grep -Eo 'https://[^ ]+workers\.dev' | head -1 >> "$GITHUB_STEP_SUMMARY" || true

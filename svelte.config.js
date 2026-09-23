@@ -19,13 +19,6 @@ const config = {
       precompress: false,
       strict: true
     }),
-    // Base path prefix for hosting at a subpath (e.g. github.io/<repo>).
-    // Set BASE_PATH=/website in GitHub Actions during the preview period.
-    // Once the site is on the custom domain (fopermian.com), unset BASE_PATH
-    // so paths resolve from the root.
-    paths: {
-      base: process.env.BASE_PATH || ''
-    },
     prerender: {
       handleHttpError: 'warn'
     }
