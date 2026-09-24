@@ -35,7 +35,6 @@ export const offerings = [
   {
     num: '01',
     label: 'Powered Land',
-    title: 'West Texas sites with a path to power.',
     body:
       'Sites in West Texas with power development pathways and room to expand — identified and structured with our development partners for GPU-scale buildouts.',
     href: 'powered land'
@@ -43,7 +42,6 @@ export const offerings = [
   {
     num: '02',
     label: 'Power Purchase Agreements',
-    title: 'Power supply structured around your requirements.',
     body:
       'Power supply opportunities structured with our partners around each customer’s requirements. Behind-the-meter power is a project-specific solution, with configuration and operating terms determined for each opportunity.',
     href: 'a PPA'
@@ -51,7 +49,6 @@ export const offerings = [
   {
     num: '03',
     label: 'White Space',
-    title: 'Leased data center space for your GPUs.',
     body:
       'Leased data center space through our development partnerships for GPU infrastructure — for operators who want to deploy without building and running the facility themselves.',
     href: 'white space'
