@@ -36,9 +36,11 @@
       </div>
 
       <div class="order-1 lg:order-2">
-        <figure class="relative overflow-hidden rounded-lg border border-line-strong">
-          <img src="{base}/img/hivolt.jpg" alt="HiVolt Energy" class="h-full w-full object-cover" />
-          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-bg/95 via-bg/40 to-transparent p-5">
+        <figure class="overflow-hidden rounded-lg border border-line-strong bg-surface">
+          <div class="bg-white p-8 md:p-12">
+            <img src="{base}/img/hivolt.jpg" alt="HiVolt Energy" class="mx-auto w-full max-w-md" />
+          </div>
+          <figcaption class="border-t border-line-strong p-5">
             <p class="font-mono text-xs uppercase tracking-wider text-flame">Power development partner</p>
             <p class="mt-1 text-sm text-text">HiVolt Energy · Isolated & utility-connected microgrids, Texas</p>
           </figcaption>

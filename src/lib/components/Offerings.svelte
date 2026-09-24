@@ -18,11 +18,8 @@
     <div class="mt-16 grid gap-px overflow-hidden rounded-lg border border-line-strong bg-line-strong md:grid-cols-3">
       {#each offerings as o}
         <article class="group relative flex flex-col gap-5 bg-bg p-8 transition-colors hover:bg-surface md:p-10">
-          <header class="flex items-baseline justify-between gap-4">
-            <span class="font-mono text-xs text-text-dim">{o.num}</span>
-            <span class="eyebrow text-right">{o.label}</span>
-          </header>
-          <h3 class="display-3 max-w-xs">{o.title}</h3>
+          <span class="font-mono text-xs text-text-dim">{o.num}</span>
+          <h3 class="display-3">{o.label}</h3>
           <p class="text-text-muted leading-relaxed">{o.body}</p>
           <a
             href="#contact"
