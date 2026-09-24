@@ -1,6 +1,7 @@
 # Cloudflare Workers — static assets deployment for fopermian.com.
 # account_id comes from the CLOUDFLARE_ACCOUNT_ID env var in CI (never committed).
 name = "fo-permian-website"
+main = "src/worker/index.js"
 compatibility_date = "2026-09-01"
 
 # Preview URLs for non-production uploads (wrangler versions upload).
@@ -9,6 +10,16 @@ workers_dev = true
 
 [assets]
 directory = "./build"
+binding = "ASSETS"
+# Only /api/* invokes the Worker; everything else is served as static assets.
+run_worker_first = ["/api/*"]
 # adapter-static emits 404.html; serve it for unknown paths.
 not_found_handling = "404-page"
 html_handling = "auto-trailing-slash"
+
+# Contact form -> Resend. RESEND_API_KEY is a secret (wrangler secret put),
+# never committed. LEAD_FROM must be on a domain verified in Resend.
+[vars]
+LEAD_INBOX = "jose@fopermian.com"
+LEAD_FROM = "FO Permian <leads@websitemachine.co>"
+SITE_HOST = "fopermian.com"
